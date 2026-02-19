@@ -1,0 +1,115 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.4.0">
+  <diagram id="fVhTIEzAjNcf8l52P7iD" name="Страница-1">
+    <mxGraphModel dx="1181" dy="1853" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-38" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="&lt;div&gt;PHP&lt;/div&gt;&lt;div&gt;контейнер&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;выступает web сервером. получает запросы возвращает ссылки на статьи&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="522" y="-753" as="geometry" />
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-40" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="&lt;div&gt;Qdrant&lt;/div&gt;&lt;div&gt;контейнер&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;получает эмбеддинг и отдает ссылки на статьи с похожими эмбеддингами&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="119" width="119" x="128" y="-481" as="geometry" />
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-44" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="&lt;div&gt;фронтенд&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;ввел запрос, получил ссылку на статью&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;(открытая вкладка в браузере пользователя)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="821" y="-744" as="geometry" />
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-46" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="&lt;div&gt;LLM&lt;/div&gt;&lt;div&gt;контейнер&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;получает текстовый запрос и отдает его эмбеддинг&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="119" width="119" x="238.25" y="-744" as="geometry" />
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-49" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="119" width="119" x="1101.25" y="-347" as="geometry" />
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-56" edge="1" parent="1" source="0fwdPYuL9vsX1YPIxbLx-44" style="shape=flexArrow;endArrow=classic;html=1;rounded=1;exitX=0.34;exitY=0.006;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.885;entryY=0.138;entryDx=0;entryDy=0;entryPerimeter=0;" target="0fwdPYuL9vsX1YPIxbLx-38" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="744" y="-794" />
+            </Array>
+            <mxPoint x="851.24" y="-843.44" as="sourcePoint" />
+            <mxPoint x="658" y="-731" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-75" connectable="0" parent="0fwdPYuL9vsX1YPIxbLx-56" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="&lt;div&gt;POST запрос&lt;/div&gt;&lt;div&gt;(поисковой запрос)&lt;/div&gt;&lt;div&gt;&lt;div&gt;(JSON)&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.0178" y="-3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-63" edge="1" parent="1" source="0fwdPYuL9vsX1YPIxbLx-38" style="shape=flexArrow;endArrow=classic;html=1;rounded=1;exitX=0.789;exitY=0.914;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.398;entryY=0.996;entryDx=0;entryDy=0;entryPerimeter=0;shadow=0;flowAnimation=0;" target="0fwdPYuL9vsX1YPIxbLx-44" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="736" y="-565" />
+            </Array>
+            <mxPoint x="687" y="-524" as="sourcePoint" />
+            <mxPoint x="737" y="-574" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-77" connectable="0" parent="0fwdPYuL9vsX1YPIxbLx-63" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="AJAX ответ&lt;br&gt;&lt;div&gt;(ссылка на статью с хабра)&lt;/div&gt;&lt;div&gt;(JSON)&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.0888" y="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-64" edge="1" parent="1" source="0fwdPYuL9vsX1YPIxbLx-38" style="shape=flexArrow;endArrow=classic;html=1;rounded=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.664;entryY=0.03;entryDx=0;entryDy=0;entryPerimeter=0;" target="0fwdPYuL9vsX1YPIxbLx-46" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="437" y="-783" />
+            </Array>
+            <mxPoint x="435" y="-758" as="sourcePoint" />
+            <mxPoint x="485" y="-808" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-78" connectable="0" parent="0fwdPYuL9vsX1YPIxbLx-64" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="&lt;div&gt;Fast API&lt;/div&gt;&lt;div&gt;(текст запроса)&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.1754" y="-4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-65" edge="1" parent="1" source="0fwdPYuL9vsX1YPIxbLx-46" style="shape=flexArrow;endArrow=classic;html=1;rounded=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="0fwdPYuL9vsX1YPIxbLx-40" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="171" y="-580" />
+            </Array>
+            <mxPoint x="216" y="-507" as="sourcePoint" />
+            <mxPoint x="266" y="-557" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-81" connectable="0" parent="0fwdPYuL9vsX1YPIxbLx-65" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="эмбеддинг" vertex="1">
+          <mxGeometry relative="1" x="-0.1951" as="geometry">
+            <mxPoint x="-7" y="8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-66" edge="1" parent="1" source="0fwdPYuL9vsX1YPIxbLx-40" style="shape=flexArrow;endArrow=classic;html=1;rounded=1;exitX=0.953;exitY=0.244;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" target="0fwdPYuL9vsX1YPIxbLx-46" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="312" y="-526" />
+            </Array>
+            <mxPoint x="540" y="-419" as="sourcePoint" />
+            <mxPoint x="590" y="-469" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-82" connectable="0" parent="0fwdPYuL9vsX1YPIxbLx-66" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="ссылка на статью" vertex="1">
+          <mxGeometry relative="1" x="-0.1946" y="1" as="geometry">
+            <mxPoint x="11" y="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-67" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1048" y="-366" as="sourcePoint" />
+            <mxPoint x="1098" y="-416" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-83" edge="1" parent="1" source="0fwdPYuL9vsX1YPIxbLx-46" style="shape=flexArrow;endArrow=classic;html=1;rounded=1;exitX=0.947;exitY=0.755;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="0fwdPYuL9vsX1YPIxbLx-38" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="433" y="-638" />
+            </Array>
+            <mxPoint x="1047" y="-326" as="sourcePoint" />
+            <mxPoint x="1097" y="-376" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0fwdPYuL9vsX1YPIxbLx-84" connectable="0" parent="0fwdPYuL9vsX1YPIxbLx-83" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" value="&lt;div&gt;FastAPI&lt;/div&gt;&lt;div&gt;(ссылка на статью)&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.2442" y="3" as="geometry">
+            <mxPoint x="-28" y="3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
