@@ -24,8 +24,6 @@
     ├── 📁 python/
     │   ├── 📄 Dockerfile
     │   ├── 📄 index_docs.py
-    │   ├── 📁 __pycache__/
-    │   │   └── 📄 search_service.cpython-310.pyc
     │   ├── 📄 requirements.txt
     │   └── 📄 search_service.py
     ├── 📄 README.md
