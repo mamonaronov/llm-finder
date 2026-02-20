@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # Векторная база данных Qdrant
+ # qdrant:
+   # image: qdrant/qdrant:latest
+   # container_name: rag-qdrant
+   # restart: unless-stopped
+  #  ports:
+  #    - "6333:6333"  # REST API
+  #    - "6334:6334"  # GRPC API
+  #  volumes:
+ #     - ./qdrant_storage:/qdrant/storage
+  #  environment:
+  #    - QDRANT__SERVICE__GRPC_PORT=6334
+  #  networks:
+  #    - rag-network
+
+  # Python-микросервис для эмбеддингов
+  python-service:
+    build: ./python
+    container_name: rag-python
+    restart: unless-stopped
+    ports:
+      - "8000:8000"  # Для отладки (можно убрать в production)
+    environment:
+      # - QDRANT_HOST=qdrant
+      # - QDRANT_PORT=6333
+      - COLLECTION_NAME=my_docs
+   # depends_on:
+   #   - qdrant
+    networks:
+      - rag-network
+    volumes:
+      # Для разработки: монтируем код для hot-reload
+      - ./python:/app
+    # В production лучше убрать volume и пересобирать образ при изменениях
+
+  # PHP-сервис с веб-сервером
+  php-service:
+    build: ./php
+    container_name: rag-php
+    restart: unless-stopped
+    ports:
+      - "8080:80"  # Доступ к PHP-скрипту через порт 8080
+    depends_on:
+      - python-service
+    networks:
+      - rag-network
+    volumes:
+      - ./php:/var/www/html
+      - ./documents:/var/www/html/documents  # Если нужен доступ к документам
+
+networks:
+  rag-network:
+    driver: bridge
