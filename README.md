@@ -11,23 +11,27 @@
 
  вот так выглядит файловая структура репозитория:
 
-     📁 llm-finder/
-     ├── 📄 docker-compose.yml
-     ├── 📄 LICENSE
-     ├── 📁 php/
-     │   ├── 📄 Dockerfile
-     │   ├── 📄 index.php
-     │   ├── 📄 php.ini
-     │   └── 📄 search.php
-     ├── 📁 python/
-     │   ├── 📄 Dockerfile
-     │   ├── 📄 index_docs.py
-     │   ├── 📄 requirements.txt
-     │   └── 📄 search_service.py
-     ├── 📄 README.md
-     └── 📁 общая инфа/
-         ├── 📄 архитектура.drawio
-         └── 📄 техническое задание.txt
+    📁 llm-finder/
+    ├── 📄 docker-compose.yml
+    ├── 📁 documents/
+    ├── 📄 LICENSE
+    ├── 📁 php/
+    │   ├── 📄 Dockerfile
+    │   ├── 📁 documents/
+    │   ├── 📄 index.html
+    │   ├── 📄 php.ini
+    │   └── 📄 search.php
+    ├── 📁 python/
+    │   ├── 📄 Dockerfile
+    │   ├── 📄 index_docs.py
+    │   ├── 📁 __pycache__/
+    │   │   └── 📄 search_service.cpython-310.pyc
+    │   ├── 📄 requirements.txt
+    │   └── 📄 search_service.py
+    ├── 📄 README.md
+    └── 📁 общая инфа/
+        ├── 📄 архитектура.drawio
+        └── 📄 техническое задание.txt
 
         
   для локального запуска надо зайти в папку где лежит файл "docker-compose.yml"
