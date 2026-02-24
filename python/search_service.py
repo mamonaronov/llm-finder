@@ -34,7 +34,7 @@ async def search(request: SearchRequest):
         results = []
         results.append(SearchResult(
             id='121',
-            text='пример текста',
+            text='пример текста (кстати запрос был таким: "' + request.query + '")',
             source='example_link_of_dockument',
             score=0.613))
 
