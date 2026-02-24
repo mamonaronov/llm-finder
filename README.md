@@ -34,7 +34,9 @@
         
   для локального запуска надо зайти в папку где лежит файл "docker-compose.yml"
   ввести команды:
+  
   docker-compose build
+  
   docker-compose up
   
   и потом в браузере можно открыть http://localhost:8080/index.php
