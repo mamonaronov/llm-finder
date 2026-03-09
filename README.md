@@ -8,32 +8,6 @@
      это схема архитектуры (этот файл можно открыть на сайте https://app.diagrams.net/)
 
 
-
- вот так выглядит файловая структура репозитория:
-
-    📁 llm-finder/
-    ├── 📄 docker-compose.yml
-    ├── 📁 documents/
-    ├── 📄 LICENSE
-    ├── 📁 php/
-    │   ├── 📄 Dockerfile
-    │   ├── 📁 documents/
-    │   ├── 📄 index.html
-    │   ├── 📄 php.ini
-    │   └── 📄 search.php
-    ├── 📁 python/
-    │   ├── 📄 Dockerfile
-    │   ├── 📄 index_docs.py
-    │   ├── 📁 __pycache__/
-    │   │   └── 📄 search_service.cpython-310.pyc
-    │   ├── 📄 requirements.txt
-    │   └── 📄 search_service.py
-    ├── 📄 README.md
-    └── 📁 общая инфа/
-        ├── 📄 архитектура.drawio
-        └── 📄 техническое задание.txt
-
-        
   для локального запуска надо зайти в папку где лежит файл "docker-compose.yml"
   ввести команды:
   
@@ -42,3 +16,6 @@
   docker-compose up
   
   и потом в браузере можно открыть http://localhost:8080/index.php
+
+  в папке qdrant_storage лежит коллекция с векторами и ссылками с которой qdrant через docker volumes запускается с нужными данными
+  для обновления этих данных есть скрипт "run_update.sh" который запускает питон скрипт который обновляет данные в папке qdrant_storage из файла data.json
