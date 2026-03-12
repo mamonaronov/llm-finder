@@ -37,10 +37,18 @@ print([c for c in collections])
 # вычисление векторов
 model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
+
+
+# загрузка json файла
 with open("data.json", "r", encoding="utf-8") as f:
     items = json.load(f)
 
 texts = [it["text"] for it in items]
+
+
+
+
+
 vectors = model.encode(texts, normalize_embeddings=True)
 
 
