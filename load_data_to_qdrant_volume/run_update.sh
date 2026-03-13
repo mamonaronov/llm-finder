@@ -48,9 +48,17 @@ done
 
 echo "✅ Qdrant готов."
 
-# Сборка образа с BuildKit и кешем
-echo "Сборка образа index-docs-img (с кешированием зависимостей)..."
-DOCKER_BUILDKIT=1 docker build -t index-docs-img .
+
+# Сборка образа с BuildKit
+# $1 - это аргумент командной строки который дается при запуске скрипта
+if [ "$1" == "--no-cache" ]; then
+    TARGET="without-cache"
+    echo "собираем контейнер без кеша"
+else
+    TARGET="with-cache"
+fi
+DOCKER_BUILDKIT=1 docker build --target "$TARGET" -t index-docs-img .
+
 
 # Запуск Python‑скрипта
 echo "Запуск index_docs.py..."
