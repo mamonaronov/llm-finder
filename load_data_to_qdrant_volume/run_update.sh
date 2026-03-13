@@ -48,9 +48,9 @@ done
 
 echo "✅ Qdrant готов."
 
-# Сборка образа для Python
-echo "Сборка образа index-docs-img..."
-docker build -t index-docs-img .
+# Сборка образа с BuildKit и кешем
+echo "Сборка образа index-docs-img (с кешированием зависимостей)..."
+DOCKER_BUILDKIT=1 docker build -t index-docs-img .
 
 # Запуск Python‑скрипта
 echo "Запуск index_docs.py..."
@@ -60,7 +60,5 @@ docker run --rm \
     -e QDRANT_URL="http://$QDRANT_CONTAINER:6333" \
     -v "$SCRIPT_DIR/data.json:/app/data.json" \
     index-docs-img
-
-
 
 echo "✅ Данные успешно загружены в Qdrant volume."

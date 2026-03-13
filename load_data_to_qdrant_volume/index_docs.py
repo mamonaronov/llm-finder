@@ -64,6 +64,7 @@ client.upsert(collection_name="collection_name", points=points)
 """
 
 
+
 # Генератор точек – не хранит все в памяти
 def point_generator(items, vectors):
     for it, vec in zip(items, vectors):
