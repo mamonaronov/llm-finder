@@ -11,5 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Общий финальный этап, использующий результат предыдущего
 FROM ${TARGET:-with-cache} as final
+
+
+
 COPY index_docs.py .
 CMD ["python", "index_docs.py"]

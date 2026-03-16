@@ -51,7 +51,7 @@ texts = [it["text"] for it in items]
 vectors = model.encode(texts, normalize_embeddings=True)
 
 
-# старый способ загрузки
+# старый способ загрузки векторов в qdrant
 """points = []
 for it, vec in zip(items, vectors):
     payload = dict(it)

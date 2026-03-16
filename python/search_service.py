@@ -1,12 +1,30 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from qdrant_client import QdrantClient
 import os
 from typing import List, Optional
+from qdrant_client.models import Distance, PointStruct, VectorParams
+
+# эта библиотека используется для работы тестовой нейронки так что когда будет нормальная, ее можно будет удалить
+from sentence_transformers import SentenceTransformer 
 
 app = FastAPI()
 
-COLLECTION_NAME = os.getenv("COLLECTION_NAME", "my_docs")
+COLLECTION_NAME = os.getenv("COLLECTION_NAME", "the_test_name")
+QDRANT_URL = os.getenv("QDRANT_URL", "http://localhost:6333")
+client = QdrantClient(url=QDRANT_URL)
 
+
+
+# Проверим существование коллекции при старте и создадим, если нужно
+try:
+    client.get_collection(COLLECTION_NAME)
+except Exception:
+    # Если коллекции нет, выведем ошибку
+    print(f"нет такой коллекции: {COLLECTION_NAME}.")
+
+# тестовая временная модель 
+model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
 
 
@@ -27,21 +45,23 @@ class SearchResult(BaseModel):
 @app.post("/search", response_model=List[SearchResult])
 async def search(request: SearchRequest):
     try:
-
-
-        ## пока что тут заглушка
-
         results = []
-        results.append(SearchResult(
-            id='121',
-            text='пример текста (кстати запрос 1 был таким: "' + request.query + '")',
-            source='example_link_of_dockument',
-            score=0.613))
-        results.append(SearchResult(
-            id='121',
-            text='пример текста (кстати запрос был таким: "' + request.query + '")',
-            source='example_link_of_dockument',
-            score=0.613))
+        # вычисление вектора временной моделью
+        vector = model.encode(request.query, normalize_embeddings=True)
+        
+        query_results = client.query_points(
+            collection_name=COLLECTION_NAME,
+            query=vector.tolist(),
+            limit=request.top_k
+        )
+
+        for point in query_results.points:
+            results.append(SearchResult(
+                id=str(point.id),
+                text=point.payload.get("text", ""),
+                source=point.payload.get("link", "unknown"),
+                score=point.score
+            ))
 
         return results
     except Exception as e:

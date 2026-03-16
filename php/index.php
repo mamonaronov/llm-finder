@@ -60,14 +60,21 @@
                 const text = escapeHtml(item.text || '');
                 const source = escapeHtml(item.source || 'документ');
                 const score = item.score ? item.score.toFixed(3) : '?';
-                const fileUrl = `/documents/${encodeURIComponent(source)}`;
+                // Вместо const HabrUrl = `${encodeURIComponent(source)}`; делаем проверку
+                let linkUrl;
+                if (source.startsWith('http://') || source.startsWith('https://')) {
+                    // Внешняя ссылка — используем как есть
+                    linkUrl = source;
+                } else {
+                    // Локальный файл — кодируем только имя файла для безопасности
+                    linkUrl = `/documents/${encodeURIComponent(source)}`;
+                }
                 const fileName = source;
                 const snippet = truncateText(text, 200);
 
                 return `
                     <div class="result-item">
-                        <h3><a href="${fileUrl}" target="_blank" title="Открыть исходный файл">${fileName}</a></h3>
-                        <div class="source">${fileUrl}</div>
+                        <h3><a href="${linkUrl}" target="_blank" title="Открыть статью">${fileName}</a></h3>
                         <div class="snippet">${snippet}</div>
                         <div class="score">Релевантность: ${score}</div>
                     </div>

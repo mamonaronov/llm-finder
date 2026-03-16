@@ -24,9 +24,8 @@ services:
     ports:
       - "8000:8000" # Для отладки (можно убрать в production)
     environment:
-      # - QDRANT_HOST=qdrant
-      # - QDRANT_PORT=6333
-      - COLLECTION_NAME=my_docs
+      - QDRANT_URL=http://qdrant:6333
+      - COLLECTION_NAME=the_test_name
     # depends_on:
     #   - qdrant
     networks:
@@ -50,7 +49,6 @@ services:
     volumes:
       - ./php:/var/www/html
       - ./documents:/var/www/html/documents # Если нужен доступ к документам
-
 networks:
   rag-network:
     driver: bridge
