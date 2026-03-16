@@ -8,7 +8,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Копирование кода
 COPY search_service.py .
-COPY index_docs.py .
 
 # Порт для FastAPI
 EXPOSE 8000
