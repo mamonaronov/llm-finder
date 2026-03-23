@@ -57,12 +57,12 @@ if [ "$1" == "--no-cache" ]; then
 else
     TARGET="with-cache"
 fi
-DOCKER_BUILDKIT=1 docker build --target "$TARGET" -t index-docs-img .
+DOCKER_BUILDKIT=1 docker build --build-arg TARGET="$TARGET" -t index-docs-img .
 
 
 # Запуск Python‑скрипта
 echo "Запуск index_docs.py..."
-docker run --rm \
+docker run -it --rm \
     --name "$PYTHON_CONTAINER" \
     --network "$NETWORK_NAME" \
     -e QDRANT_URL="http://$QDRANT_CONTAINER:6333" \

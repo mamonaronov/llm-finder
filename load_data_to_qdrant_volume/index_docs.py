@@ -13,25 +13,40 @@ from sentence_transformers import SentenceTransformer
 QDRANT_URL = os.getenv("QDRANT_URL", "http://localhost:6333")
 client = QdrantClient(url=QDRANT_URL)
 
-
+print('это питон скрипт index_docs.py')
 collection_name = "the_test_name"
 
-# --- Проверка и удаление существующей коллекции ---
-if client.collection_exists(collection_name):
-    print(f"Коллекция '{collection_name}' уже существует. Удаляем...")
-    client.delete_collection(collection_name)
-    print("Коллекция удалена.")
-
-# --- Создание новой коллекции ---
-client.create_collection(
-    collection_name=collection_name,
-    vectors_config=VectorParams(size=384, distance=Distance.COSINE),
-)
 
 
-collections = client.get_collections()
+try:
+    if client.collection_exists(collection_name):
+        print(f"Коллекция '{collection_name}' уже существует. Удаляем...")
+        client.delete_collection(collection_name)
+
+    print(f"Создаю коллекцию '{collection_name}'...")
+    client.create_collection(
+        collection_name=collection_name,
+        vectors_config=VectorParams(size=384, distance=Distance.COSINE),
+    )
+
+    # Проверка после создания
+    if client.collection_exists(collection_name):
+        print(f"✅ Коллекция '{collection_name}' успешно создана!")
+    else:
+        print(f"❌ ОШИБКА: Коллекция не создана!")
+        exit(1)
+
+except Exception as e:
+    print(f"❌ Критическая ошибка: {e}")
+    import traceback
+    traceback.print_exc()
+    exit(1)
+
+
+collections_response = client.get_collections()
 print(f"Коллекция '{collection_name}' создана.")
-print([c for c in collections])
+print(f"Доступные коллекции: {[c.name for c in collections_response.collections]}")
+
 
 
 # вычисление векторов
