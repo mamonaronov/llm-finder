@@ -9,7 +9,7 @@ RUN a2enmod rewrite
 
 # Копирование PHP-скрипта
 COPY search.php /var/www/html/
-COPY index.php /var/www/html/
+COPY index.html /var/www/html/
 COPY php.ini /usr/local/etc/php/
 
 # Настройка прав

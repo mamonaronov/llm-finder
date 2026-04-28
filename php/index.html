@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск по документам (RAG) — каркас для вёрстки</title>
+    <link href="/css/style.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="result_background" id="result_background">
+        <div class="presentation" id="presentation">
+            <div class="hello_message" id="hello_message">
+                    <h1>Ищите статью здесь</h1>
+            </div>
+            <div class="search-form">
+                <div class="search-form-container" id="search_form_container" onclick="document.getElementById('queryInput').focus(); return false;">
+                    <div class="input-container">
+                        <input class="search-input" type="text" id="queryInput" placeholder="Введите запрос..." autofocus>
+                    </div>
+                    <div class="button-container">
+                        <button class="search-button" type="submit" id="searchBtn">
+                            <img src="misc/icons8-search.svg" alt="search"/>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="results" id="resultsContainer" style="display: none;">
+            <div style="display: flex; height: 100%; flex-direction: column; gap: 20px; align-content: space-between;">
+                <div class="result-item" id="result_item">
+                <div class="snippet">Маркетинг в социальных сетях эффективен</div>
+                <h3><a href="https://habr.com/ru/articles/1008022/" target="_blank" title="Открыть статью">https://habr.com/ru/articles/1008022/</a></h3>
+                <div class="score">Релевантность: 0.711</div>
+                </div>
+                <div class="result-item">
+                        <div class="snippet">дождь это атмосферные осадки в виде капель воды</div>
+                        <h3><a href="https://habr.com/ru/articles/1008022/" target="_blank" title="Открыть статью">https://habr.com/ru/articles/1008022/</a></h3>
+                        <div class="score">Релевантность: 0.647</div>
+                </div>
+                
+                <div class="result-item">
+                    <div class="snippet">монитор служит для отображения графической информации</div>
+                    <h3><a href="https://habr.com/ru/articles/1008022/" target="_blank" title="Открыть статью">https://habr.com/ru/articles/1008022/</a></h3>
+                    <div class="score">Релевантность: 0.622</div>
+                </div>
+                
+                <div class="result-item">
+                    <div class="snippet">повар готовит еду в ресторанах и кафе</div>
+                    <h3><a href="https://habr.com/ru/articles/1008022/" target="_blank" title="Открыть статью">https://habr.com/ru/articles/1008022/</a></h3>
+                    <div class="score">Релевантность: 0.616</div>
+                </div>
+                
+                <div class="result-item">
+                    <div class="snippet">повар готовит еду в ресторанах и кафе</div>
+                    <h3><a href="https://habr.com/ru/articles/1008022/" target="_blank" title="Открыть статью">https://habr.com/ru/articles/1008022/</a></h3>
+                    <div class="score">Релевантность: 0.616</div>
+                </div>
+            </div>
+        </div>
+        <div class="searching_message" style="display: none;">
+            <h1>
+                Ищем
+                <span class="">.</span>
+                <span class="">.</span>
+                <span class="">.</span>
+            </h1>
+        </div>
+        <div class="error_message" id="error_message" style="display: none;" message>
+            <h1>Произошла ошибка, повторите позже :(</h1>
+        </div>
+        </div>
+    </div>
+    <script src="/script/script.js"></script>
+</body>
+</html>
