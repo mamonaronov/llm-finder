@@ -14,5 +14,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 FROM ${TARGET:-with-cache} as final
 ENV PYTHONUNBUFFERED=1
 COPY index_docs.py .
-COPY habr_embeddings.h5
+COPY habr_embeddings.h5 .
 CMD ["python", "index_docs.py"]
