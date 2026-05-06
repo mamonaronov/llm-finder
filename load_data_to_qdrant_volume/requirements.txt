@@ -1,2 +1,3 @@
 qdrant-client
 sentence-transformers
+h5py
