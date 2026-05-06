@@ -15,7 +15,7 @@
   
   docker-compose up
   
-  и потом в браузере можно открыть http://localhost:8080/index.php
+  и потом в браузере можно открыть http://localhost:8080/index.html
 
 
 ## обновление данных
