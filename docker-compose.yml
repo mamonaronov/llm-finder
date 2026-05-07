@@ -25,6 +25,7 @@ services:
     environment:
       - QDRANT_URL=http://qdrant:6333
       - COLLECTION_NAME=the_test_name
+      - DB_PASSWORD=${DB_PASSWORD}
     # depends_on:
     #   - qdrant
     networks:
@@ -32,6 +33,7 @@ services:
     volumes:
       # Для разработки: монтируем код для hot-reload
       - ./python:/app
+      - ./hf_cache:/root/.cache/huggingface/hub
     # В production лучше убрать volume и пересобирать образ при изменениях
 
   # PHP-сервис с веб-сервером
