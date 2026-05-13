@@ -40,12 +40,15 @@ with h5py.File("habr_embeddings.h5", 'r') as f: #Файловы тип данн�
     keys_struct = f['keys'][:] #Индекс [:] означает что нужно выбрать все значения
     tensors = f['tensors'][:] #тип - numpy array
 
+def decode_if_bytes(val):
+    return val.decode('utf-8') if isinstance(val, bytes) else val
+
 # Генератор точек – не хранит все в памяти
 def point_generator(keys_struct, tensors):
     for i, (row, vec) in enumerate(zip(keys_struct, tensors)):
-        point_id = row['id']
-        url = row['url']
-        text = row['text_markdown']
+        point_id = int(decode_if_bytes(row['id']))
+        url = decode_if_bytes(row['url'])
+        text = decode_if_bytes(row['text_markdown'])
         payload = {"text": text, "link": url}
         yield PointStruct(id=point_id, vectors=vec.tolist(), payload=payload)
 
