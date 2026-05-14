@@ -52,7 +52,8 @@ def point_generator(keys_struct, tensors):
         yield PointStruct(id=point_id, vector=vec.tolist(), payload=payload)
 
 
-
+points_gen = point_generator(keys_struct, tensors)
+points_list = list(points_gen)
 # Загрузка батчами по умолчанию 64 точки
 client.upload_points(
     collection_name=collection_name,
@@ -62,7 +63,7 @@ client.upload_points(
 )
 
 
-total = len(payloads)  # предполагаем, что items — список или объект с длиной
+total = len(points_list)  # предполагаем, что items — список или объект с длиной
 print(f" Successfully uploaded {total} points to collection '{collection_name}'.")
 
 # print(f"Upsert done: {len(points)} points into collection")
