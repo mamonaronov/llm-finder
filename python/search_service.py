@@ -8,6 +8,13 @@ from qdrant_client.models import Distance, PointStruct, VectorParams
 # эта библиотека используется для работы тестовой нейронки так что когда будет нормальная, ее можно будет удалить
 from sentence_transformers import SentenceTransformer
 
+from huggingface_hub import login
+try:
+    token = os.getenv("DB_PASSWORD")
+    login(token) # помогалка от rag-python  | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+except Exception as e:
+    print(f"токена от huggingface нету так что загрузка будет медленнее")
+
 app = FastAPI()
 
 COLLECTION_NAME = os.getenv("COLLECTION_NAME", "the_test_name")

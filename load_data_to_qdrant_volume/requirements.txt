@@ -1,3 +1,4 @@
 qdrant-client
 sentence-transformers
 h5py
+huggingface_hub
