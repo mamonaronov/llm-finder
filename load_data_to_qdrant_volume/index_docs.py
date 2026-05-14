@@ -1,6 +1,6 @@
 # этот скрипт должен брать готовые вектора и закидывать их в qdrant чтобы они оказались в volumes его контейнера
 # это делается чтобы при запуске на проде qdrant просто запускался, брал базу данных из volumes и сервис был готов к работе
-import json
+import uuid
 import h5py
 import os
 
@@ -46,7 +46,7 @@ def decode_if_bytes(val):
 # Генератор точек – не хранит все в памяти
 def point_generator(keys_struct, tensors):
     for i, (row, vec) in enumerate(zip(keys_struct, tensors)):
-        point_id = int(decode_if_bytes(row['id']))
+        point_id = uuid.uuid4()
         url = decode_if_bytes(row['url'])
         text = decode_if_bytes(row['text_markdown'])
         payload = {"text": text, "link": url}
