@@ -11,3 +11,8 @@ hf_cache/
 !.cache_dir/
 !.cache_dir/.*
 .cache_dir/*
+qdrant_storage/collections/the_test_name/0/newest_clocks.json
+qdrant_storage/collections/the_test_name/0/newest_clocks.json
+qdrant_storage/collections/the_test_name/0/wal/first-index
+qdrant_storage/collections/the_test_name/0/wal/open-1
+qdrant_storage/collections/the_test_name/0/wal/open-2
